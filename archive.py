@@ -70,13 +70,37 @@ class Archive:
         except OSError:
             return False
 
+
+    def _resolve(self, base, epochs, name):
+        """Pick which stored campaign this save belongs to. Same world seed is not enough: a restarted game with the
+        same guild name reuses it. Saves of one run share embedded creation stamps; a restart shares none."""
+        camps = self.data['campaigns']
+        cands = [k for k in camps if k == base or k.startswith(base + '#')]
+        fresh = set(epochs)
+        best = max(cands, key=lambda k: len(fresh & set(camps[k].get('epochs', []))), default=None)
+        if best is not None and fresh & set(camps[best].get('epochs', [])):
+            return best
+        legacy = [k for k in cands if not camps[k].get('epochs')]
+        if legacy:                       # archive written before runs were fingerprinted: adopt it
+            return legacy[0]
+        if not cands:
+            return base
+        if not fresh:                    # nothing to compare against: assume the most recently seen run
+            return max(cands, key=lambda k: _abs(camps[k].get('lastSeen') or {}))
+        return f'{base}#{len(cands) + 1}'   # a different playthrough that happens to share the seed
+
     # ---------------------------------------------------------- merge
     def ingest(self, data):
         """Merge a freshly-read save summary into the archive and return the merged view."""
         with LOCK:
             heroes = data.pop('_heroes', {})
             fresh_prizes = data.pop('_prizes', {})
-            e = self.data['campaigns'].setdefault(data['campaign'], {})
+            epochs = data.pop('_epochs', [])
+            key = self._resolve(data['campaign'], epochs, data['guild']['name'])
+            data['campaign'] = key
+            e = self.data['campaigns'].setdefault(key, {})
+            seen = sorted(set(e.get('epochs', [])) | set(epochs))
+            e['epochs'] = seen if len(seen) <= 2500 else seen[:60] + seen[-2440:]
             e['name'] = data['guild']['name']
             e['lastSeen'] = {'year': data['guild']['year'], 'week': data['guild']['week']}
             kept_total = 0
@@ -239,6 +263,9 @@ class Archive:
             # --- commanders: evidence is accumulated, the timeline is rebuilt from it every time
             raw = data.pop('_cmd')
             c = e.setdefault('commanders', {'events': [], 'trust': [], 'heroes': {}, 'last': {}})
+            # two different commanders can't be appointed in the same week: this save's evidence beats stale archive entries
+            fresh_at = {(ev['year'], ev['week']): ev['name'] for ev in raw['events']}
+            c['events'] = [x for x in c['events'] if fresh_at.get((x['year'], x['week']), x['name']) == x['name']]
             have = {(x['name'], x['year'], x['week']) for x in c['events']}
             for ev in raw['events']:
                 if (ev['name'], ev['year'], ev['week']) not in have:

@@ -343,6 +343,20 @@ def commander_raw(g, heroes_by_name):
     }
 
 
+EPOCH_RE = re.compile(r'(?<!\d)1[6-9]\d{11}(?!\d)')
+EPOCH_SOURCES = ('commanderCorrespondence', 'feedEntries', 'transactionHistory', 'crownCorrespondence', 'academyLog', 'renownLog')
+
+
+def run_epochs(g):
+    """Real-time creation stamps embedded in ids (letters, feed, transactions, legends). Two playthroughs can share a
+    world seed and guild name, but never these, so overlap with a stored set means 'same run'."""
+    out = set()
+    for k in EPOCH_SOURCES:
+        out.update(int(x) for x in EPOCH_RE.findall(json.dumps(g.get(k) or [])))
+    out.update(int(x) for x in EPOCH_RE.findall(json.dumps((g.get('hallOfFame') or {}).get('legends') or [])))
+    return sorted(out)
+
+
 def legend_value(a, d):
     if 'field' in d:
         return a.get(d['field']) or 0
@@ -596,6 +610,7 @@ def summarize(g, meta):
         'deathCount': g.get('deathCount'),
         'bestiary': bestiary(g),
         'academy': academy_grads(g),
+        '_epochs': run_epochs(g),
         '_cmd': commander_raw(g, {a.get('name'): (a, w) for a, w in reversed(list(heroes.values()))}),
         'campaign': str((g.get('worldDeck') or {}).get('seed') or g.get('factionCharacterSeed') or g.get('guildName')),
         '_heroes': {hid: brief(a, w) for hid, (a, w) in heroes.items()},
