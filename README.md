@@ -26,4 +26,10 @@ The code is here too. To run or build from source:
 
 Browser preview for UI work: `python tools/fake_grads_test.py` writes a `dev_data.json` from a real save plus synthetic graduates; serve the folder with `python -m http.server` and open `index.html` (it falls back to `dev_data.json` when there is no pywebview bridge).
 
+## License
+
+The tracker's code is released under the [GNU General Public License v3.0](LICENSE): you may use, modify and share it, but derivative works must be released under the same license with source available.
+
+This license covers the tracker's own code only. The game's text and art remain the property of their owner:
+
 Ability, trait and ambition text © Gargadusa’s Tower, included with the developer’s permission
