@@ -503,7 +503,7 @@ function viewGraduates(d) {
   const A = d.academy, G = S.gr;
   if (!A.grads.length) return empty(`No graduates yet.${A.trainees ? ` ${A.trainees} trainee${A.trainees === 1 ? ' is' : 's are'} still enrolled.` : ''} Graduates show up here once a trainee finishes the Academy.`);
   const opt = (arr, cur, all) => `<option value="">${all}</option>` + arr.map(v => `<option ${cur === v ? 'selected' : ''}>${esc(v)}</option>`).join('');
-  const uniq = f => [...new Set(A.grads.map(f).filter(v => v != null && v !== ''))].sort();
+  const uniq = f => [...new Set(A.grads.map(f).filter(v => v != null && v !== ''))].sort((a, b) => typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b)));
   const tierCounts = {}; A.grads.forEach(r => { const t = tierOf(r.potential); tierCounts[t] = (tierCounts[t] || 0) + 1; });
   const chips = `<div class="tier-chips"><button class="chip ${!G.tier ? 'on' : ''}" data-gtier="">All <span class="faint">${A.grads.length}</span></button>` +
     [...TIERS].reverse().map(t => `<button class="chip ${G.tier === t ? 'on' : ''} ${tierCounts[t] ? '' : 'zero'} t-${t}" data-gtier="${t}">${t}-Tier <span class="faint">${tierCounts[t] || 0}</span></button>`).join('') + `</div>`;
