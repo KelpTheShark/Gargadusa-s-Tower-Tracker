@@ -1,0 +1,14 @@
+# build output
+dist/
+build/
+*.spec
+build.log
+__pycache__/
+*.pyc
+
+# personal data - never publish
+archive.json
+archive.prev.json
+archive.tmp
+config.json
+dev_data.json

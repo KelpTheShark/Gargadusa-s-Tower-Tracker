@@ -1,0 +1,1504 @@
+{
+ "callings": {
+  "slayer": {
+   "name": "The Slayer",
+   "family": "combat",
+   "titleId": "the_slayer",
+   "flavor": "A killer's edge, honed to ruin.",
+   "deedGate": {
+    "type": "top_performer",
+    "count": 8
+   },
+   "calling": {
+    "requirement": {
+     "type": "top_performer",
+     "count": 15
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "critical_successes",
+     "count": 12
+    }
+   },
+   "roles": [
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "guardian": {
+   "name": "The Guardian",
+   "family": "combat",
+   "titleId": "the_guardian",
+   "flavor": "The wall the guild leans on.",
+   "deedGate": {
+    "type": "no_party_deaths",
+    "count": 12
+   },
+   "calling": {
+    "requirement": {
+     "type": "no_party_deaths",
+     "count": 22
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "quests_without_injury",
+     "count": 25
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer"
+   ]
+  },
+  "survivor": {
+   "name": "The Survivor",
+   "family": "combat",
+   "titleId": "the_survivor",
+   "flavor": "Death has tried and failed.",
+   "deedGate": {
+    "type": "critical_recoveries",
+    "count": 2
+   },
+   "calling": {
+    "requirement": {
+     "type": "quests_without_injury",
+     "count": 20
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "quests_without_injury",
+       "count": 25
+      },
+      {
+       "type": "no_party_deaths",
+       "count": 20
+      }
+     ]
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "avenger": {
+   "name": "The Avenger",
+   "family": "combat",
+   "titleId": "the_avenger",
+   "flavor": "Every loss, repaid in kind.",
+   "deedGate": {
+    "type": "underdog_victories",
+    "count": 4
+   },
+   "calling": {
+    "requirement": {
+     "type": "underdog_victories",
+     "count": 8
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "critical_successes",
+     "count": 10
+    }
+   },
+   "roles": [
+    "Melee",
+    "Tank"
+   ]
+  },
+  "daredevil": {
+   "name": "The Daredevil",
+   "family": "combat",
+   "titleId": "the_daredevil",
+   "flavor": "The odds are a dare.",
+   "deedGate": {
+    "type": "underdog_victories",
+    "count": 4
+   },
+   "calling": {
+    "requirement": {
+     "type": "underdog_victories",
+     "count": 8
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "underdog_victories",
+       "count": 12
+      },
+      {
+       "type": "critical_successes",
+       "count": 10
+      }
+     ]
+    }
+   },
+   "roles": [
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "sentinel": {
+   "name": "The Sentinel",
+   "family": "combat",
+   "titleId": "the_sentinel",
+   "flavor": "The line that does not break.",
+   "deedGate": {
+    "type": "same_party_quests",
+    "count": 15
+   },
+   "calling": {
+    "requirement": {
+     "type": "same_party_quests",
+     "count": 25
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "no_party_deaths",
+     "count": 30
+    }
+   },
+   "roles": [
+    "Tank"
+   ]
+  },
+  "tactician": {
+   "name": "The Tactician",
+   "family": "combat",
+   "titleId": "the_tactician",
+   "flavor": "The battle won before it starts.",
+   "deedGate": {
+    "type": "high_tier_quests",
+    "count": 8,
+    "minTier": 4
+   },
+   "calling": {
+    "requirement": {
+     "type": "high_tier_quests",
+     "count": 14,
+     "minTier": 4
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "high_tier_quests",
+       "count": 20,
+       "minTier": 4
+      },
+      {
+       "type": "no_party_deaths",
+       "count": 25
+      }
+     ]
+    },
+    "difficulty": "hard"
+   },
+   "roles": [
+    "Tank",
+    "Ranged",
+    "Healer"
+   ]
+  },
+  "berserker_heart": {
+   "name": "The Unrelenting",
+   "family": "combat",
+   "titleId": "the_unrelenting",
+   "flavor": "No quarter asked or given.",
+   "deedGate": {
+    "type": "critical_successes",
+    "count": 8
+   },
+   "calling": {
+    "requirement": {
+     "type": "critical_successes",
+     "count": 14
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "critical_successes",
+       "count": 20
+      },
+      {
+       "type": "top_performer",
+       "count": 12
+      }
+     ]
+    }
+   },
+   "roles": [
+    "Melee",
+    "Tank"
+   ]
+  },
+  "champion": {
+   "name": "The Champion",
+   "family": "character",
+   "titleId": "the_champion",
+   "flavor": "First name on every lip.",
+   "deedGate": {
+    "type": "top_performer",
+    "count": 12
+   },
+   "calling": {
+    "requirement": {
+     "type": "top_performer",
+     "count": 22
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "ovr_threshold",
+     "ovr": 85
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "mentor": {
+   "name": "The Mentor",
+   "family": "character",
+   "titleId": "the_mentor",
+   "flavor": "A teacher whose lessons outlive them.",
+   "deedGate": {
+    "type": "witnessed_levelups",
+    "count": 5
+   },
+   "calling": {
+    "requirement": {
+     "type": "witnessed_levelups",
+     "count": 10
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "witnessed_levelups",
+       "count": 16
+      },
+      {
+       "type": "provings_assisted",
+       "count": 3
+      }
+     ]
+    },
+    "difficulty": "hard"
+   },
+   "roles": [
+    "Healer",
+    "Tank",
+    "Ranged"
+   ]
+  },
+  "loner": {
+   "name": "The Lone Wolf",
+   "family": "character",
+   "titleId": "the_lone_wolf",
+   "flavor": "Walks alone, by choice.",
+   "deedGate": {
+    "type": "party_variety",
+    "count": 5
+   },
+   "calling": {
+    "requirement": {
+     "type": "party_variety",
+     "count": 8
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "total_quests",
+     "count": 40
+    }
+   },
+   "roles": [
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "showman": {
+   "name": "The Renowned",
+   "family": "character",
+   "titleId": "the_renowned",
+   "flavor": "A reputation that precedes them.",
+   "deedGate": {
+    "type": "ovr_threshold",
+    "ovr": 78
+   },
+   "calling": {
+    "requirement": {
+     "type": "top_performer",
+     "count": 18
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "ovr_threshold",
+     "ovr": 85
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "wanderer": {
+   "name": "The Wanderer",
+   "family": "character",
+   "titleId": "the_wanderer",
+   "flavor": "Every horizon, crossed.",
+   "deedGate": {
+    "type": "location_variety",
+    "count": 5
+   },
+   "calling": {
+    "requirement": {
+     "type": "location_variety",
+     "count": 8
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "quest_variety",
+     "types": 7
+    }
+   },
+   "roles": [
+    "Ranged",
+    "Melee"
+   ]
+  },
+  "stoic": {
+   "name": "The Steadfast",
+   "family": "character",
+   "titleId": "the_steadfast",
+   "flavor": "Unmoved by fortune, good or ill.",
+   "deedGate": {
+    "type": "total_quests",
+    "count": 40
+   },
+   "calling": {
+    "requirement": {
+     "type": "total_quests",
+     "count": 70
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "high_morale_streak",
+     "count": 25,
+     "threshold": 70
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "paragon": {
+   "name": "The Paragon",
+   "family": "character",
+   "titleId": "the_paragon",
+   "flavor": "The standard others measure against.",
+   "deedGate": {
+    "type": "ovr_threshold",
+    "ovr": 80
+   },
+   "calling": {
+    "requirement": {
+     "type": "ovr_threshold",
+     "ovr": 85
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "top_performer",
+     "count": 25
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "trailblazer": {
+   "name": "The Trailblazer",
+   "family": "character",
+   "titleId": "the_trailblazer",
+   "flavor": "First through every door.",
+   "deedGate": {
+    "type": "first_completions",
+    "count": 3
+   },
+   "calling": {
+    "requirement": {
+     "type": "first_completions",
+     "count": 5
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "quest_variety",
+     "types": 8
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "the_sworn": {
+   "name": "The Sworn",
+   "family": "lore",
+   "titleId": "the_oathbound",
+   "flavor": "Bound to the Crown by an unbreakable word.",
+   "deedGate": {
+    "type": "no_party_deaths",
+    "count": 15
+   },
+   "calling": {
+    "requirement": {
+     "type": "no_party_deaths",
+     "count": 25
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "high_tier_quests",
+     "count": 10,
+     "minTier": 4
+    }
+   },
+   "roles": [
+    "Tank",
+    "Melee"
+   ]
+  },
+  "light_bearer": {
+   "name": "The Light Bearer",
+   "family": "lore",
+   "titleId": "light_of_the_temple",
+   "flavor": "A vessel for the Temple's grace.",
+   "deedGate": {
+    "type": "no_party_deaths",
+    "count": 12
+   },
+   "calling": {
+    "requirement": {
+     "type": "no_party_deaths",
+     "count": 20
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "witnessed_levelups",
+     "count": 12
+    }
+   },
+   "roles": [
+    "Healer",
+    "Tank"
+   ]
+  },
+  "shadow_broker": {
+   "name": "The Shadow Broker",
+   "family": "lore",
+   "titleId": "the_broker",
+   "flavor": "Every secret has a price.",
+   "deedGate": {
+    "type": "gold_earned",
+    "amount": 15000.0
+   },
+   "calling": {
+    "requirement": {
+     "type": "gold_earned",
+     "amount": 30000.0
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "underdog_victories",
+     "count": 8
+    }
+   },
+   "roles": [
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "the_branded": {
+   "name": "The Branded",
+   "family": "lore",
+   "titleId": "marked_of_capricorn",
+   "flavor": "Marked by the dragon's power — and its curse.",
+   "deedGate": {
+    "type": "levels_gained",
+    "count": 15
+   },
+   "calling": {
+    "requirement": {
+     "type": "levels_gained",
+     "count": 24
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "high_tier_quests",
+     "count": 12,
+     "minTier": 4
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "codex_seeker": {
+   "name": "The Codex-Seeker",
+   "family": "lore",
+   "titleId": "bearer_of_the_codex",
+   "flavor": "Some knowledge was never meant to be read.",
+   "deedGate": {
+    "type": "quest_variety",
+    "types": 6
+   },
+   "calling": {
+    "requirement": {
+     "type": "quest_variety",
+     "types": 8
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "total_quests",
+     "count": 50
+    }
+   },
+   "roles": [
+    "Ranged",
+    "Healer"
+   ]
+  },
+  "crystal_touched": {
+   "name": "The Crystal-Touched",
+   "family": "lore",
+   "titleId": "crystal_touched",
+   "flavor": "Attuned to the song beneath the world.",
+   "deedGate": {
+    "type": "critical_successes",
+    "count": 8
+   },
+   "calling": {
+    "requirement": {
+     "type": "critical_successes",
+     "count": 14
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "ovr_threshold",
+     "ovr": 85
+    }
+   },
+   "roles": [
+    "Ranged",
+    "Healer"
+   ]
+  },
+  "tower_climber": {
+   "name": "The Tower-Climber",
+   "family": "lore",
+   "titleId": "the_climber",
+   "flavor": "Defined by the descent into the dark.",
+   "deedGate": {
+    "type": "tower_floors",
+    "count": 10
+   },
+   "calling": {
+    "requirement": {
+     "type": "tower_floors",
+     "count": 25
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "compound",
+     "mode": "all",
+     "conditions": [
+      {
+       "type": "tower_floors",
+       "count": 40
+      },
+      {
+       "type": "high_tier_quests",
+       "count": 8,
+       "minTier": 4
+      }
+     ]
+    },
+    "difficulty": "punishing"
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  },
+  "severance_pledged": {
+   "name": "The Severance-Pledged",
+   "family": "lore",
+   "titleId": "the_severed_sworn",
+   "flavor": "Ready to pay the final price.",
+   "deedGate": {
+    "type": "critical_recoveries",
+    "count": 2
+   },
+   "calling": {
+    "requirement": {
+     "type": "critical_recoveries",
+     "count": 3
+    }
+   },
+   "ascension": {
+    "requirement": {
+     "type": "no_party_deaths",
+     "count": 30
+    }
+   },
+   "roles": [
+    "Tank",
+    "Healer",
+    "Melee",
+    "Ranged"
+   ]
+  }
+ },
+ "ambitions": {
+  "aries_glory_seeker": {
+   "name": "Glory Seeker",
+   "description": "Spend 25 weeks out on quests, landing at least 5 critical successes"
+  },
+  "aries_first_blood": {
+   "name": "First Into the Fray",
+   "description": "Complete 5 raids successfully, with at least 1 a Decisive Victory"
+  },
+  "taurus_wealth_builder": {
+   "name": "Wealth Builder",
+   "description": "Earn 15,000g total from all sources (quests, raids & tower)"
+  },
+  "taurus_steadfast": {
+   "name": "The Unmovable",
+   "description": "Quest for 36 weeks without taking a single injury"
+  },
+  "gemini_jack_of_trades": {
+   "name": "Jack of All Trades",
+   "description": "Successfully complete quests of 5 different types, win 2 raids and help clear 2 Tower floors"
+  },
+  "gemini_social_butterfly": {
+   "name": "Social Butterfly",
+   "description": "Quest alongside 15 different teammates"
+  },
+  "cancer_protector": {
+   "name": "Guild Protector",
+   "description": "Quest for 36 weeks with no party death"
+  },
+  "cancer_nurturer": {
+   "name": "The Nurturer",
+   "description": "Stand with 3 other guild members as they pass their Proving (Ascension trial)"
+  },
+  "leo_champion": {
+   "name": "The Champion",
+   "description": "Finish as your party's top performer in 15 successful quests"
+  },
+  "leo_legend": {
+   "name": "Living Legend",
+   "description": "Be top performer in 10 quests, win 3 raids and help clear 5 Tower floors"
+  },
+  "virgo_perfectionist": {
+   "name": "The Perfectionist",
+   "description": "Land 8 critical successes and quest for 24 weeks without taking an injury"
+  },
+  "virgo_workhorse": {
+   "name": "Tireless Worker",
+   "description": "Spend 60 weeks out on quests"
+  },
+  "libra_peacekeeper": {
+   "name": "The Peacekeeper",
+   "description": "Spend 20 weeks questing in a party averaging 80+ morale"
+  },
+  "libra_partner": {
+   "name": "Perfect Partner",
+   "description": "Forge lasting bonds with 5 fellow guild members"
+  },
+  "scorpio_avenger": {
+   "name": "The Avenger",
+   "description": "Win 6 quests as the underdog, land 5 critical successes and clear 4 top-tier quests"
+  },
+  "scorpio_transformer": {
+   "name": "Reborn from Ashes",
+   "description": "Serve as Guild Commander for a full year (52 weeks)"
+  },
+  "sagittarius_explorer": {
+   "name": "The Explorer",
+   "description": "Complete quests in 7 different environments"
+  },
+  "sagittarius_free_spirit": {
+   "name": "Free Spirit",
+   "description": "Quest alongside 20 different teammates"
+  },
+  "capricorn_climber": {
+   "name": "Peak Performer",
+   "description": "Finish a CCL season ranked Top 20 in any stat category"
+  },
+  "capricorn_master": {
+   "name": "The Master",
+   "description": "Complete 12 Tier 4+ quests and finish as top performer in 6 of them"
+  },
+  "aquarius_pioneer": {
+   "name": "The Pioneer",
+   "description": "Complete 12 different types of quest"
+  },
+  "aquarius_maverick": {
+   "name": "The Maverick",
+   "description": "Win 10 quests as the underdog (party power below the quest rating)"
+  },
+  "pisces_empath": {
+   "name": "The Empath",
+   "description": "Forge 6 lasting bonds and stand in the party as 10 comrades level up"
+  },
+  "pisces_dreamer": {
+   "name": "The Dreamer",
+   "description": "Hold 80+ morale through 30 weeks of questing"
+  },
+  "aries_warbringer": {
+   "name": "Warbringer",
+   "description": "Spend 40 weeks out on quests"
+  },
+  "aries_unbroken": {
+   "name": "Unbroken Charge",
+   "description": "Win 6 quests as the underdog (party power below the quest rating)"
+  },
+  "taurus_provider": {
+   "name": "The Provider",
+   "description": "Be signed to a long-term contract of 9 years or more"
+  },
+  "taurus_bulwark": {
+   "name": "The Bulwark",
+   "description": "Quest for 44 weeks with no party death"
+  },
+  "gemini_quicksilver": {
+   "name": "Quicksilver",
+   "description": "Complete quests in 6 different environments"
+  },
+  "gemini_companion": {
+   "name": "The Companion",
+   "description": "Quest for 24 weeks with the same unchanged party"
+  },
+  "cancer_shieldwarden": {
+   "name": "Shieldwarden",
+   "description": "Complete 8 raids and 2 Tower battles successfully"
+  },
+  "cancer_kindred": {
+   "name": "Kindred Spirit",
+   "description": "Quest for 24 weeks with the same unchanged party"
+  },
+  "leo_sunlord": {
+   "name": "The Sunlord",
+   "description": "Land 10 critical successes"
+  },
+  "leo_radiant": {
+   "name": "Radiant Glory",
+   "description": "Keep morale burning at 80+ through 30 weeks of questing"
+  },
+  "virgo_artisan": {
+   "name": "The Artisan",
+   "description": "Wear 2 Legendary items at once, or 3 of Epic quality or better"
+  },
+  "virgo_devoted": {
+   "name": "The Devoted",
+   "description": "Be signed to a contract of more than 5 years"
+  },
+  "libra_harmonizer": {
+   "name": "The Harmonizer",
+   "description": "Maintain 90+ morale through 24 weeks of questing"
+  },
+  "libra_diplomat": {
+   "name": "The Diplomat",
+   "description": "Complete 6 faction dispatches"
+  },
+  "scorpio_relentless": {
+   "name": "The Relentless",
+   "description": "Complete 20 quests as party captain"
+  },
+  "scorpio_phoenix": {
+   "name": "Phoenix Heart",
+   "description": "Finish as top performer in 8 successful quests"
+  },
+  "sagittarius_pathfinder": {
+   "name": "The Pathfinder",
+   "description": "Personally help clear 25 Tower floors"
+  },
+  "sagittarius_wayfarer": {
+   "name": "The Wayfarer",
+   "description": "Spend 40 weeks out on quests and quest in 5 different environments"
+  },
+  "capricorn_ascendant": {
+   "name": "The Ascendant",
+   "description": "Gain 20 levels"
+  },
+  "capricorn_unyielding": {
+   "name": "The Unyielding",
+   "description": "Complete 10 Tower battles"
+  },
+  "aquarius_visionary": {
+   "name": "The Visionary",
+   "description": "Serve as a party captain for two full years (104 weeks)"
+  },
+  "aquarius_iconoclast": {
+   "name": "The Iconoclast",
+   "description": "Stand in a party as the guild finishes Top 4 in the CCL, twice"
+  },
+  "pisces_mystic": {
+   "name": "The Mystic",
+   "description": "Complete 15 Arcane Study training sessions"
+  },
+  "pisces_tidecaller": {
+   "name": "The Tidecaller",
+   "description": "Complete 10 Arcane Study sessions and personally help clear 15 Tower floors"
+  },
+  "aries_deepvanguard": {
+   "name": "Vanguard of the Deep",
+   "description": "Fight in the clearing party for 15 Tower floors"
+  },
+  "taurus_immovable": {
+   "name": "Stonewatch",
+   "description": "Stand garrison on a held Tower floor for 12 weeks"
+  },
+  "gemini_manyhands": {
+   "name": "Many Hands",
+   "description": "Complete 8 faction dispatches"
+  },
+  "cancer_shelteringtide": {
+   "name": "Sheltering Tide",
+   "description": "Raise the guild's standing with the Temple to 400"
+  },
+  "leo_centerstage": {
+   "name": "Center Stage",
+   "description": "End a CCL season ranked Top 20 in any stat category"
+  },
+  "virgo_flawless": {
+   "name": "Flawless Execution",
+   "description": "Win 3 raids by Decisive Victory"
+  },
+  "virgo_faithfulservice": {
+   "name": "Faithful Service",
+   "description": "Complete 8 faction contracts"
+  },
+  "libra_courtfavor": {
+   "name": "Court Favor",
+   "description": "Raise the guild's standing with the Nobles to 400"
+  },
+  "scorpio_intothedark": {
+   "name": "Into the Dark",
+   "description": "Clear 25 Tower floors, past where the light reaches"
+  },
+  "sagittarius_farhorizons": {
+   "name": "Far Horizons",
+   "description": "Captain a party through 15 quests"
+  },
+  "capricorn_thelongclimb": {
+   "name": "The Long Climb",
+   "description": "Serve as Guild Commander for 52 weeks"
+  },
+  "capricorn_oathbound": {
+   "name": "The Oathbound",
+   "description": "Complete 6 faction contracts"
+  },
+  "aquarius_liftothers": {
+   "name": "Lift Up the Worthy",
+   "description": "Stand with 3 heroes as they pass their Proving"
+  },
+  "pisces_deepcalling": {
+   "name": "The Deep Calling",
+   "description": "Fight in 8 Tower battles"
+  }
+ },
+ "traits": {
+  "berserkers_blood": {
+   "name": "Berserker's Blood",
+   "description": "+15% damage when party health below 50%"
+  },
+  "shield_brother": {
+   "name": "Shield Brother",
+   "description": "+10% defense (passive)"
+  },
+  "first_strike": {
+   "name": "First Strike",
+   "description": "Hits hard from the opening blow. +20% damage."
+  },
+  "avenger": {
+   "name": "Avenger",
+   "description": "Channels every setback into fury. +20% OVR."
+  },
+  "armor_breaker": {
+   "name": "Armor Breaker",
+   "description": "Crushing blows that punch through any defense. +10% damage."
+  },
+  "giant_slayer": {
+   "name": "Giant Slayer",
+   "description": "+15% damage vs Boss-type enemies"
+  },
+  "skirmisher": {
+   "name": "Skirmisher",
+   "description": "Fast, relentless strikes. +10% damage."
+  },
+  "pack_fighter": {
+   "name": "Pack Fighter",
+   "description": "Fights best alongside the pack. +8% OVR."
+  },
+  "vanguard": {
+   "name": "Vanguard",
+   "description": "+8% party damage (Tank only)"
+  },
+  "executioner": {
+   "name": "Executioner",
+   "description": "Closes out a fight without mercy. +20% damage."
+  },
+  "iron_constitution": {
+   "name": "Iron Constitution",
+   "description": "-20% injury duration"
+  },
+  "quick_healer": {
+   "name": "Quick Healer",
+   "description": "+25% recovery speed"
+  },
+  "lucky_dodge": {
+   "name": "Lucky Dodge",
+   "description": "-15% injury chance"
+  },
+  "scarred_veteran": {
+   "name": "Scarred Veteran",
+   "description": "Immune to Minor injuries"
+  },
+  "pain_tolerance": {
+   "name": "Pain Tolerance",
+   "description": "Can quest with Minor injury (50% penalty)"
+  },
+  "survivors_instinct": {
+   "name": "Survivor's Instinct",
+   "description": "-25% critical injury chance"
+  },
+  "thick_skinned": {
+   "name": "Thick Skinned",
+   "description": "-10% all damage taken"
+  },
+  "battle_hardened": {
+   "name": "Battle Hardened",
+   "description": "-5% injury risk per 15 quests completed"
+  },
+  "natural_resilience": {
+   "name": "Natural Resilience",
+   "description": "A tough constitution. +10% injury resistance."
+  },
+  "death_defier": {
+   "name": "Death Defier",
+   "description": "+10% chance to survive a lethal injury"
+  },
+  "quick_learner": {
+   "name": "Quick Learner",
+   "description": "+25% XP gain"
+  },
+  "late_bloomer": {
+   "name": "Late Bloomer",
+   "description": "+50% stat growth after age 30 and keeps improving 5 years longer"
+  },
+  "prodigy": {
+   "name": "Prodigy",
+   "description": "+40% XP before level 20"
+  },
+  "perfectionist": {
+   "name": "Perfectionist",
+   "description": "+10% training effectiveness"
+  },
+  "dedicated": {
+   "name": "Dedicated",
+   "description": "Training takes 1 fewer week"
+  },
+  "natural_talent": {
+   "name": "Natural Talent",
+   "description": "Start with +3 to primary stats"
+  },
+  "slow_starter": {
+   "name": "Slow Starter",
+   "description": "-20% XP before level 10, +20% after"
+  },
+  "peak_performer": {
+   "name": "Peak Performer",
+   "description": "Extended peak years (age 28-38)"
+  },
+  "eternal_student": {
+   "name": "Eternal Student",
+   "description": "Always learning. +35% XP gain."
+  },
+  "mentors_gift": {
+   "name": "Mentor's Gift",
+   "description": "+30% XP when in party with higher level"
+  },
+  "natural_leader": {
+   "name": "Natural Leader",
+   "description": "+5% party OVR when captain"
+  },
+  "inspiring_presence": {
+   "name": "Inspiring Presence",
+   "description": "+3 morale to party members weekly"
+  },
+  "lone_wolf": {
+   "name": "Lone Wolf",
+   "description": "+15% OVR when sole member of their role in party (e.g., sole Tank)"
+  },
+  "team_player": {
+   "name": "Team Player",
+   "description": "+8% OVR with 2+ same role in party"
+  },
+  "negotiator": {
+   "name": "Negotiator",
+   "description": "-10% wage demands"
+  },
+  "prima_donna": {
+   "name": "Prima Donna",
+   "description": "+20% OVR but +15% wage demands"
+  },
+  "guild_loyalist": {
+   "name": "Guild Loyalist",
+   "description": "Will never accept rival poaching"
+  },
+  "mercenary_heart": {
+   "name": "Mercenary Heart",
+   "description": "+5% OVR but may accept rival offers"
+  },
+  "morale_anchor": {
+   "name": "Morale Anchor",
+   "description": "Party morale can't drop below 30"
+  },
+  "charismatic": {
+   "name": "Charismatic",
+   "description": "+10% renown gain from quests"
+  },
+  "dungeon_delver": {
+   "name": "Dungeon Delver",
+   "description": "+15% OVR during Exploration quests"
+  },
+  "monster_hunter": {
+   "name": "Monster Hunter",
+   "description": "+15% OVR during Elimination quests"
+  },
+  "bodyguard": {
+   "name": "Bodyguard",
+   "description": "+15% OVR during Protection quests"
+  },
+  "occult_expert": {
+   "name": "Occult Expert",
+   "description": "+15% OVR during Arcane quests"
+  },
+  "diplomat": {
+   "name": "Diplomat",
+   "description": "+15% OVR during Faction quests"
+  },
+  "versatile": {
+   "name": "Versatile",
+   "description": "+5% OVR across all quest types"
+  },
+  "specialist": {
+   "name": "Specialist",
+   "description": "+25% OVR in one quest type, -10% in others (assigned at generation)"
+  },
+  "ruin_walker": {
+   "name": "Ruin Walker",
+   "description": "+20% OVR during Ancient Ruins quests"
+  },
+  "beast_tracker": {
+   "name": "Beast Tracker",
+   "description": "+20% OVR during Monster Bounty quests"
+  },
+  "urban_expert": {
+   "name": "Urban Expert",
+   "description": "+15% OVR during urban environment quests"
+  },
+  "treasure_hunter": {
+   "name": "Treasure Hunter",
+   "description": "+15% gold from quests"
+  },
+  "scavenger": {
+   "name": "Scavenger",
+   "description": "+20% material drops"
+  },
+  "lucky_find": {
+   "name": "Lucky Find",
+   "description": "+10% rare loot chance"
+  },
+  "frugal": {
+   "name": "Frugal",
+   "description": "-15% medical costs"
+  },
+  "expensive_taste": {
+   "name": "Expensive Tastes",
+   "description": "+20% wage demands but +10% OVR"
+  },
+  "humble": {
+   "name": "Humble",
+   "description": "-20% wage demands"
+  },
+  "collector": {
+   "name": "Collector",
+   "description": "+25% equipment drop chance"
+  },
+  "appraiser": {
+   "name": "Appraiser",
+   "description": "An eye for value. +10% gold from quests."
+  },
+  "haggler": {
+   "name": "Haggler",
+   "description": "Drives a hard bargain. 10% lower wage."
+  },
+  "golden_touch": {
+   "name": "Golden Touch",
+   "description": "+5% chance for double quest gold"
+  },
+  "early_riser": {
+   "name": "Early Riser",
+   "description": "+10% OVR during Spring/Summer"
+  },
+  "night_owl": {
+   "name": "Night Owl",
+   "description": "+10% OVR during Autumn/Winter"
+  },
+  "seasons_child": {
+   "name": "Season's Child",
+   "description": "+15% OVR during birth season, -5% in opposite"
+  },
+  "tireless": {
+   "name": "Tireless",
+   "description": "-1 rest week after quests"
+  },
+  "marathon_runner": {
+   "name": "Marathon Runner",
+   "description": "+10% OVR during quests lasting 6+ weeks"
+  },
+  "sprinter": {
+   "name": "Sprinter",
+   "description": "+15% OVR during quests of 2 weeks or less"
+  },
+  "endurance_fighter": {
+   "name": "Endurance Fighter",
+   "description": "Tireless on long campaigns. +10% OVR on quests 6+ weeks."
+  },
+  "eager_beaver": {
+   "name": "Eager Beaver",
+   "description": "+20% OVR on first quest of each season"
+  },
+  "year_end_push": {
+   "name": "Year-End Push",
+   "description": "+15% OVR during weeks 40-52"
+  },
+  "consistent": {
+   "name": "Consistent",
+   "description": "Steady and reliable. +5% OVR."
+  },
+  "brave": {
+   "name": "Brave",
+   "description": "Immune to morale loss from danger"
+  },
+  "cautious": {
+   "name": "Cautious",
+   "description": "-10% injury risk, -5% OVR"
+  },
+  "reckless": {
+   "name": "Reckless",
+   "description": "+10% OVR, +10% injury risk"
+  },
+  "stoic": {
+   "name": "Stoic",
+   "description": "Halved morale swings (positive and negative)"
+  },
+  "emotional": {
+   "name": "Emotional",
+   "description": "Doubled morale swings"
+  },
+  "optimist": {
+   "name": "Optimist",
+   "description": "+5 base morale"
+  },
+  "pessimist": {
+   "name": "Pessimist",
+   "description": "-5 base morale, +10% critical thinking (avoid bad outcomes)"
+  },
+  "competitive": {
+   "name": "Competitive",
+   "description": "Rises to meet every challenge. +10% OVR."
+  },
+  "vengeful": {
+   "name": "Vengeful",
+   "description": "Never forgets a slight. +15% OVR."
+  },
+  "protective": {
+   "name": "Protective",
+   "description": "-20% injury chance for party members, +10% injury chance for self"
+  },
+  "scarred_survivor": {
+   "name": "Scarred Survivor",
+   "description": "Survived a critical injury. Permanently toughened. +2 CON, +2 END."
+  },
+  "weekly_champion": {
+   "name": "Guild Champion",
+   "description": "Top-ranked sparrer this week. +1 to highest combat stat."
+  },
+  "family_legacy": {
+   "name": "Family Legacy",
+   "description": "Grew up hearing stories about this guild. Feels like home. +3 morale, -10% desertion."
+  },
+  "proven": {
+   "name": "Proven",
+   "description": "Top performer in the guild's annual Trial by Fire."
+  },
+  "academy_graduate": {
+   "name": "Academy Graduate",
+   "description": "Trained at the guild academy. Higher loyalty, lower wage expectations."
+  },
+  "determined": {
+   "name": "Determined",
+   "description": "Refuses to quit. Fights through adversity for +10% XP gain."
+  },
+  "focused": {
+   "name": "Focused",
+   "description": "Rarely distracted. Completed training grants +1 Training Focus charge and +5% training XP."
+  },
+  "resilient": {
+   "name": "Resilient",
+   "description": "Bounces back quickly. +10% recovery speed, +5% injury resistance."
+  },
+  "disciplined": {
+   "name": "Disciplined",
+   "description": "Structured and consistent. Completed training grants +1 Training Focus charge and +5% training XP."
+  },
+  "adaptable": {
+   "name": "Adaptable",
+   "description": "Adjusts quickly to new situations. +5% OVR on unfamiliar quest types."
+  },
+  "magically_attuned": {
+   "name": "Magically Attuned",
+   "description": "Natural sensitivity to magical forces. +10% OVR on Arcane quests."
+  },
+  "drunkard": {
+   "name": "Drunkard",
+   "description": "15% chance to be unavailable for quests each week"
+  },
+  "bully": {
+   "name": "Bully",
+   "description": "-3 morale/week to party members with lower OVR"
+  },
+  "hothead": {
+   "name": "Hothead",
+   "description": "+25% chance to form rivalries after quest failures"
+  },
+  "glory_hog": {
+   "name": "Glory Hog",
+   "description": "+30% self XP, -15% XP for party members"
+  },
+  "coward": {
+   "name": "Coward",
+   "description": "12% chance to flee quests above their OVR, reducing party power by 20%"
+  },
+  "gambler": {
+   "name": "Gambler",
+   "description": "Gambles away 20% of their share of quest gold. The guild gets less and so does their gold-earned record."
+  },
+  "kleptomaniac": {
+   "name": "Kleptomaniac",
+   "description": "10% chance per quest to reduce party gold rewards by 15%"
+  },
+  "cursed": {
+   "name": "Cursed",
+   "description": "+15% injury chance for entire party"
+  },
+  "instigator": {
+   "name": "Instigator",
+   "description": "-2 morale/week to ALL guild members"
+  },
+  "liability": {
+   "name": "Liability",
+   "description": "+20% death chance for self"
+  },
+  "friendship": {
+   "name": "Friendship",
+   "description": "A bond of trust and camaraderie forged through shared adventures"
+  },
+  "mentorship": {
+   "name": "Mentorship",
+   "description": "An experienced adventurer guides a younger protégé"
+  },
+  "battleBond": {
+   "name": "Battle Bond",
+   "description": "Warriors who have bled together share an unbreakable combat synergy"
+  },
+  "romantic": {
+   "name": "Romantic",
+   "description": "Love blooms between adventurers who share danger and triumph"
+  },
+  "siblingBond": {
+   "name": "Sibling Bond",
+   "description": "Blood ties create an instinctive understanding and loyalty"
+  },
+  "bond": {
+   "name": "Bunk Bond",
+   "description": "A friendship struck up while sharing quarters in the Barracks"
+  },
+  "rivalry": {
+   "name": "Rivalry",
+   "description": "Competitive tension that can be productive or destructive"
+  },
+  "grudge": {
+   "name": "Grudge",
+   "description": "Bad blood from past events creates lasting animosity"
+  },
+  "distrust": {
+   "name": "Distrust",
+   "description": "Suspicion and wariness prevent effective cooperation"
+  },
+  "oath": {
+   "name": "Sworn Oath",
+   "description": "A solemn vow binds these adventurers to a shared purpose"
+  },
+  "nemesis": {
+   "name": "Nemesis",
+   "description": "A personal enemy whose defeat has become an obsession"
+  }
+ },
+ "titleBonuses": {
+  "the_slayer": {
+   "damageBonus": 0.05
+  },
+  "the_guardian": {
+   "injuryReduction": 0.06
+  },
+  "the_survivor": {
+   "deathReduction": 0.08
+  },
+  "the_avenger": {
+   "damageBonus": 0.05
+  },
+  "the_daredevil": {
+   "damageBonus": 0.04,
+   "lootBonus": 0.04
+  },
+  "the_sentinel": {
+   "injuryReduction": 0.06
+  },
+  "the_tactician": {
+   "powerBonus": 0.05
+  },
+  "the_unrelenting": {
+   "damageBonus": 0.06
+  },
+  "the_champion": {
+   "goldBonus": 0.06
+  },
+  "the_mentor": {
+   "xpBonus": 0.1
+  },
+  "the_lone_wolf": {
+   "damageBonus": 0.05
+  },
+  "the_renowned": {
+   "goldBonus": 0.06
+  },
+  "the_wanderer": {
+   "lootBonus": 0.08
+  },
+  "the_steadfast": {
+   "injuryReduction": 0.05
+  },
+  "the_paragon": {
+   "powerBonus": 0.05
+  },
+  "the_trailblazer": {
+   "lootBonus": 0.05,
+   "xpBonus": 0.05
+  },
+  "the_oathbound": {
+   "injuryReduction": 0.06
+  },
+  "light_of_the_temple": {
+   "injuryReduction": 0.05,
+   "deathReduction": 0.04
+  },
+  "the_broker": {
+   "goldBonus": 0.1
+  },
+  "marked_of_capricorn": {
+   "damageBonus": 0.06
+  },
+  "bearer_of_the_codex": {
+   "xpBonus": 0.08
+  },
+  "crystal_touched": {
+   "xpBonus": 0.06,
+   "lootBonus": 0.04
+  },
+  "the_climber": {
+   "injuryReduction": 0.06
+  },
+  "the_severed_sworn": {
+   "deathReduction": 0.06,
+   "damageBonus": 0.04
+  }
+ },
+ "sites": {
+  "old_copper_mine": "The Old Copper Mine",
+  "chapel_catacombs": "The Chapel Catacombs",
+  "mill_cistern": "The Mill Cistern",
+  "orchard_sinkhole": "The Orchard Sinkhole",
+  "lantern_row_cellar": "The Cellar on Lantern Row",
+  "smelters_throat": "The Smelter's Throat"
+ }
+}
