@@ -298,6 +298,9 @@ class Archive:
                 end, reason = (nxt, 'replaced')
                 if died and _abs(died) >= _abs(st['start']) and (nxt is None or _abs(died) <= _abs(nxt)):
                     end, reason = died, 'killed'
+                ret = h.get('retiredAt') if h.get('where') == 'Retired' else None
+                if ret and reason != 'killed' and _abs(ret) >= _abs(st['start']) and (nxt is None or _abs(ret) <= _abs(nxt)):
+                    end, reason = ret, 'retired'
                 if serving:
                     end, reason = now, 'serving'
                 elif end is None:

@@ -67,6 +67,7 @@ class Api:
     def __init__(self):
         # Keep private (underscore) - pywebview walks public attributes of the js_api object.
         self._asar_index = None
+        self._asar_stamp = None
         self._portrait_cache = {}
 
     # ---- saves
@@ -89,10 +90,21 @@ class Api:
         return save_reader.mtime(filename)
 
     # ---- portraits (read straight out of the game's own install)
+    def _stamp(self):
+        try:
+            st = ASAR.stat()
+            return (st.st_mtime_ns, st.st_size)
+        except OSError:
+            return None
+
     def _index(self):
-        if self._asar_index is not None:
+        """Offsets into app.asar. Rebuilt whenever the game's archive changes (a game update moves every
+        offset), and never cached when it could not be read."""
+        stamp = self._stamp()
+        if self._asar_index and stamp == self._asar_stamp:
             return self._asar_index
-        self._asar_index = {}
+        self._portrait_cache = {}
+        self._asar_index, self._asar_stamp = {}, stamp
         try:
             with open(ASAR, 'rb') as f:
                 f.seek(4)
@@ -101,12 +113,14 @@ class Api:
                 hl = struct.unpack('<I', f.read(4))[0]
                 node = json.loads(f.read(hl))['files']['dist']['files']['adventurers']['files']['classic']['files']
             base = 8 + psz
+            idx = {}
             for folder, sub in node.items():
                 for fn, meta in (sub.get('files') or {}).items():
                     if fn.endswith('.png'):
-                        self._asar_index[f'{folder}/{fn[:-4]}'] = (base + int(meta['offset']), int(meta['size']))
+                        idx[f'{folder}/{fn[:-4]}'] = (base + int(meta['offset']), int(meta['size']))
+            self._asar_index = idx
         except Exception:
-            pass
+            self._asar_stamp = None      # force a retry next time
         return self._asar_index
 
     def portraits(self, keys):
@@ -123,7 +137,11 @@ class Api:
                 elif k in idx:
                     off, size = idx[k]
                     f.seek(off)
-                    url = 'data:image/png;base64,' + base64.b64encode(f.read(size)).decode('ascii')
+                    data = f.read(size)
+                    if data[:8] != b'\x89PNG\r\n\x1a\n':   # offsets are stale/garbled: drop them, retry on the next call
+                        self._asar_stamp = None
+                        continue
+                    url = 'data:image/png;base64,' + base64.b64encode(data).decode('ascii')
                     self._portrait_cache[k] = out[k] = url
         return out
 

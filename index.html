@@ -242,14 +242,18 @@ async function api(name, ...a) {
 }
 
 /* ---------- portraits ---------- */
-const pCache = {};
+const pCache = {}, pMiss = {};
 function pic(key, cls = '', fallback = '👤') {
   const url = key && pCache[key];
   return `<div class="pic ${cls}" ${key ? `data-p="${esc(key)}"` : ''} ${url ? `style="background-image:url('${url}')"` : ''}>${url ? '' : fallback}</div>`;
 }
 async function fillPortraits() {
-  const need = [...new Set([...document.querySelectorAll('[data-p]')].map(e => e.dataset.p))].filter(k => !(k in pCache));
-  if (need.length) { const got = await api('portraits', need) || {}; for (const k of need) pCache[k] = got[k] || ''; }
+  const now = Date.now();
+  const need = [...new Set([...document.querySelectorAll('[data-p]')].map(e => e.dataset.p))].filter(k => !pCache[k] && !(pMiss[k] > now - 20000));
+  if (need.length) {   // misses are retried after 20s (e.g. the game was mid-update), successes are cached for good
+    const got = await api('portraits', need) || {};
+    for (const k of need) { if (got[k]) pCache[k] = got[k]; else pMiss[k] = now; }
+  }
   document.querySelectorAll('[data-p]').forEach(e => {
     const u = pCache[e.dataset.p];
     if (u) { e.style.backgroundImage = `url('${u}')`; e.textContent = ''; }
@@ -543,15 +547,15 @@ function viewCommanders(d) {
       <div><div class="sec-t">Career as commander</div><div class="muted">${num(h?.weeksAsCommander)} weeks · ${num(h?.questsAsCaptain)} quests as captain</div></div></div></div>` : empty('No commander appointed.');
   const past = C.past.map(x => `<div class="card ccard"><div class="hd">${pic(x.portrait)}<div>
       <div style="font-weight:700;font-size:15px">${esc(x.name)}${keptDot(x.kept)}</div>
-      <div class="muted">${esc(x.emoji || '')} ${esc(x.class || '')}</div><div>${x.where ? whereTag(x.where) : ''}${x.ascended ? '<span class="tag gold">✦ Ascended</span>' : ''}</div></div></div>
+      <div class="muted">${esc(x.emoji || '')} ${esc(x.class || '')}</div><div>${x.where ? whereTag(x.where) : ''}${x.staffJob ? `<span class="tag" title="Still with the guild as staff">Now ${esc(x.staffJob)}</span>` : ''}${x.ascended ? '<span class="tag gold">✦ Ascended</span>' : ''}</div></div></div>
     <div class="bd">
       <div><b>${when(x.start)}</b> → <b>${x.end ? when(x.end) : '?'}</b>${x.tenure ? ` <span class="faint">· ${esc(x.tenure.text)}</span>` : ''}</div>
-      <div class="end-${esc(x.reason)}">${x.reason === 'killed' ? `☠ ${x.cause ? esc(x.cause) : 'Killed in office'}` : x.reason === 'replaced' ? 'Replaced' : 'End date unknown'}</div>
+      <div class="end-${esc(x.reason)}">${x.reason === 'killed' ? `☠ ${x.cause ? esc(x.cause) : 'Killed in office'}` : x.reason === 'retired' ? 'Retired from adventuring' : x.reason === 'replaced' ? 'Replaced' : 'End date unknown'}</div>
       <div class="kv"><div><b>${num(x.weeksAsCommander)}</b><span>Weeks served</span></div><div><b>${num(x.questsAsCaptain)}</b><span>Captain quests</span></div>${x.final ? `<div><b>${num(x.final.trust)}</b><span>Final trust</span></div><div><b>${num(x.final.approval)}</b><span>Final approval</span></div>` : ''}</div>
       ${x.trust?.length ? `<div><div class="sec-t">Trust shifts</div>${x.trust.map(t => `<span class="tag ${t.dir === 'up' ? 'Active' : 'Injured'}" title="${when(t)}">${t.dir === 'up' ? '▲' : '▼'} ${t.n} · ${when(t)}</span>`).join('')}</div>` : ''}
     </div></div>`).join('');
   return `<h2>Commanders</h2>${curHtml}<h2>Past commanders <small>${C.past.length}</small></h2>${past ? `<div class="yr-grid">${past}</div>` : empty('No former commanders on record yet.')}
-    <div class="faint" style="margin-top:12px">End dates come from the next appointment or the hero's death, not farewell letters. Everything seen is archived.</div>`;
+    <div class="faint" style="margin-top:12px">End dates come from the hero's death or retirement, or the next appointment, not farewell letters. Everything seen is archived.</div>`;
 }
 
 /* ---------- render / events ---------- */

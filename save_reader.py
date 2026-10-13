@@ -297,9 +297,20 @@ def academy_grads(g):
             'trainees': len([t for t in acad.get('trainees') or [] if not t.get('graduated') and not t.get('dismissed')])}
 
 
-def commander_raw(g, heroes_by_name):
+def commander_raw(g, heroes):
     """Raw commander evidence. Farewell letters are NOT used (they were a bug and may not be sent any more);
-    a commander's end comes from the next appointment or their death date instead."""
+    a commander's end comes from the next appointment, retirement or death instead."""
+    # letters name people, not ids. A retired adventurer can also be on the roster as staff (e.g. Quartermaster) under
+    # the same name, so the adventurer record wins and the staff job is noted separately.
+    rank = {'Fallen': 0, 'Retired': 1, 'Active': 2}
+    heroes_by_name, staff_job = {}, {}
+    for a, w in heroes.values():
+        n = a.get('name')
+        if a.get('type') not in (None, 'adventurer'):
+            staff_job[n] = pretty(a.get('type'))
+            continue
+        if n not in heroes_by_name or rank.get(w, 9) < rank.get(heroes_by_name[n][1], 9):
+            heroes_by_name[n] = (a, w)
     events, trust = [], []
     for c in g.get('commanderCorrespondence') or []:
         key, v, ts = c.get('letterKey') or '', c.get('vars') or {}, c.get('timestamp') or {}
@@ -330,6 +341,7 @@ def commander_raw(g, heroes_by_name):
             'diedOn': when(a.get('diedOn')) if w == 'Fallen' else None, 'cause': a.get('cause') if w == 'Fallen' else None,
             'weeksAsCommander': a.get('weeksAsCommander') or 0, 'questsAsCaptain': a.get('questsAsCaptain') or 0,
             'weeksAsCaptain': a.get('weeksAsCaptain') or 0, 'level': a.get('level'), 'ovr': a.get('ovr'),
+            'retiredAt': when(a.get('retiredAt')) if w == 'Retired' else None, 'staffJob': staff_job.get(n),
             'ascended': any(c.get('tier') == 'ascension' for c in done),
             'titles': [pretty(t) for t in a.get('titles') or []],
         }
@@ -611,7 +623,7 @@ def summarize(g, meta):
         'bestiary': bestiary(g),
         'academy': academy_grads(g),
         '_epochs': run_epochs(g),
-        '_cmd': commander_raw(g, {a.get('name'): (a, w) for a, w in reversed(list(heroes.values()))}),
+        '_cmd': commander_raw(g, heroes),
         'campaign': str((g.get('worldDeck') or {}).get('seed') or g.get('factionCharacterSeed') or g.get('guildName')),
         '_heroes': {hid: brief(a, w) for hid, (a, w) in heroes.items()},
         '_prizes': prizes,
